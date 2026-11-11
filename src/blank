@@ -1,0 +1,378 @@
+import { useState, useEffect } from "react";
+
+function Courses() {
+  const [courses, setCourses] = useState(() => {
+    const savedCourses = localStorage.getItem("uniplanCourses");
+
+    return savedCourses
+      ? JSON.parse(savedCourses)
+      : [
+          { id: 1, name: "Advanced Web Programming", code: "CSCI426" },
+          { id: 2, name: "Mobile Applications", code: "CSCI490" },
+          { id: 3, name: "Database", code: "CSCI320" }
+        ];
+  });
+
+  const [name, setName] = useState("");
+  const [code, setCode] = useState("");
+
+  useEffect(() => {
+    localStorage.setItem("uniplanCourses", JSON.stringify(courses));
+  }, [courses]);
+
+  function addCourse(e) {
+    e.preventDefault();
+
+    if (name.trim() === "" || code.trim() === "") {
+      alert("Please fill in all fields");
+      return;
+    }
+
+    const newCourse = {
+      id: Date.now(),
+      name: name.trim(),
+      code: code.trim()
+    };
+
+    setCourses([...courses, newCourse]);
+    setName("");
+    setCode("");
+  }
+
+  function removeCourse(id) {
+    setCourses(courses.filter(course => course.id !== id));
+  }
+
+  return (
+    <div className="page-container">
+      <h1>My Courses</h1>
+      <p>Manage your registered university courses.</p>
+
+      <form className="course-form" onSubmit={addCourse}>
+        <input
+          type="text"
+          placeholder="Course Name"
+          value={name}
+          onChange={(e) => setName(e.target.value)}
+        />
+
+        <input
+          type="text"
+          placeholder="Course Code"
+          value={code}
+          onChange={(e) => setCode(e.target.value)}
+        />
+
+        <button type="submit">Add Course</button>
+      </form>
+
+      <div className="courses-list">
+        {courses.map(course => (
+          <div className="course-card" key={course.id}>
+            <h3>{course.name}</h3>
+            <p>{course.code}</p>
+
+            <button onClick={() => removeCourse(course.id)}>
+              Remove
+            </button>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+export default Courses;
+
+
+
+
+===================================
+
+import { useState, useEffect } from "react";
+
+function Schedule() {
+  const [courses] = useState([
+    { id: 1, name: "Web Programming" },
+    { id: 2, name: "Data Structures" },
+    { id: 3, name: "Database" }
+  ]);
+
+  const [classes, setClasses] = useState(() => {
+    const savedClasses = localStorage.getItem("uniplanSchedule");
+
+    return savedClasses
+      ? JSON.parse(savedClasses)
+      : [
+          {
+            id: 1,
+            course: "Web Programming",
+            day: "Monday",
+            start: "09:00",
+            end: "10:30",
+            room: "Lab 1"
+          },
+          {
+            id: 2,
+            course: "Data Structures",
+            day: "Tuesday",
+            start: "10:00",
+            end: "11:30",
+            room: "Room 204"
+          }
+        ];
+  });
+
+  const [course, setCourse] = useState("");
+  const [classDay, setClassDay] = useState("Monday");
+  const [classStart, setClassStart] = useState("");
+  const [classEnd, setClassEnd] = useState("");
+  const [room, setRoom] = useState("");
+
+  useEffect(() => {
+    localStorage.setItem("uniplanSchedule", JSON.stringify(classes));
+  }, [classes]);
+
+  function addClass(e) {
+    e.preventDefault();
+
+    if (!course || !classStart || !classEnd || !room.trim()) {
+      alert("Please fill in all fields");
+      return;
+    }
+
+    if (classEnd <= classStart) {
+      alert("End time must be after start time");
+      return;
+    }
+
+    const newClass = {
+      id: Date.now(),
+      course,
+      day: classDay,
+      start: classStart,
+      end: classEnd,
+      room: room.trim()
+    };
+
+    setClasses([...classes, newClass]);
+
+    setCourse("");
+    setClassDay("Monday");
+    setClassStart("");
+    setClassEnd("");
+    setRoom("");
+  }
+
+  function removeClass(id) {
+    setClasses(classes.filter(item => item.id !== id));
+  }
+
+  return (
+    <div className="page-container">
+      <h1>My Schedule</h1>
+      <p>Organize your university classes and weekly timetable.</p>
+
+      <form className="schedule-form" onSubmit={addClass}>
+        <label>Course</label>
+        <select
+          value={course}
+          onChange={(e) => setCourse(e.target.value)}
+        >
+          <option value="">Select a course</option>
+          {courses.map(item => (
+            <option key={item.id} value={item.name}>
+              {item.name}
+            </option>
+          ))}
+        </select>
+
+        <label>Day</label>
+        <select
+          value={classDay}
+          onChange={(e) => setClassDay(e.target.value)}
+        >
+          <option>Monday</option>
+          <option>Tuesday</option>
+          <option>Wednesday</option>
+          <option>Thursday</option>
+          <option>Friday</option>
+          <option>Saturday</option>
+          <option>Sunday</option>
+        </select>
+
+        <label>Start Time</label>
+        <input
+          type="time"
+          value={classStart}
+          onChange={(e) => setClassStart(e.target.value)}
+        />
+
+        <label>End Time</label>
+        <input
+          type="time"
+          value={classEnd}
+          onChange={(e) => setClassEnd(e.target.value)}
+        />
+
+        <label>Room</label>
+        <input
+          type="text"
+          placeholder="Enter room"
+          value={room}
+          onChange={(e) => setRoom(e.target.value)}
+        />
+
+        <button type="submit">Add Class</button>
+      </form>
+
+      <h2>Weekly Schedule</h2>
+
+      <div className="schedule-table-container">
+        <table className="schedule-table">
+          <thead>
+            <tr>
+              <th>Course</th>
+              <th>Day</th>
+              <th>Start</th>
+              <th>End</th>
+              <th>Room</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            {classes.map(item => (
+              <tr key={item.id}>
+                <td>{item.course}</td>
+                <td>{item.day}</td>
+                <td>{item.start}</td>
+                <td>{item.end}</td>
+                <td>{item.room}</td>
+                <td>
+                  <button onClick={() => removeClass(item.id)}>
+                    Remove
+                  </button>
+                </td>
+              </tr>
+            ))}
+
+            {classes.length === 0 && (
+              <tr>
+                <td colSpan="6">No classes added yet.</td>
+              </tr>
+            )}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
+export default Schedule;
+=============================
+
+import { useState, useEffect } from "react";
+
+function Tasks() {
+  const [tasks, setTasks] = useState(() => {
+    const savedTasks = localStorage.getItem("uniplanTasks");
+
+    return savedTasks
+      ? JSON.parse(savedTasks)
+      : [
+          { id: 1, title: "Web Project", done: false },
+          { id: 2, title: "Computer Architecture Midterm", done: false },
+          { id: 3, title: "Mobile Project", done: false }
+        ];
+  });
+
+  const [newTask, setNewTask] = useState("");
+
+  useEffect(() => {
+    localStorage.setItem("uniplanTasks", JSON.stringify(tasks));
+  }, [tasks]);
+
+  function addTask(e) {
+    e.preventDefault();
+
+    if (newTask.trim() === "") {
+      alert("Please enter a task");
+      return;
+    }
+
+    const task = {
+      id: Date.now(),
+      title: newTask.trim(),
+      done: false
+    };
+
+    setTasks([...tasks, task]);
+    setNewTask("");
+  }
+
+  function completeTask(id) {
+    setTasks(
+      tasks.map(task =>
+        task.id === id
+          ? { ...task, done: !task.done }
+          : task
+      )
+    );
+  }
+
+  function removeTask(id) {
+    setTasks(tasks.filter(task => task.id !== id));
+  }
+
+  return (
+    <div className="page-container">
+      <h1>My Tasks</h1>
+      <p>Keep track of your assignments and academic tasks.</p>
+
+      <h2>Add New Task</h2>
+
+      <form className="task-form" onSubmit={addTask}>
+        <label>Task Name</label>
+
+        <input
+          type="text"
+          placeholder="Enter your task..."
+          value={newTask}
+          onChange={(e) => setNewTask(e.target.value)}
+        />
+
+        <button type="submit">Add Task</button>
+      </form>
+
+      <h2>My Task List</h2>
+
+      <div className="tasks-list">
+        {tasks.map(task => (
+          <div className="task-card" key={task.id}>
+            <span className={task.done ? "completed" : ""}>
+              {task.title}
+            </span>
+
+            <button onClick={() => completeTask(task.id)}>
+              {task.done ? "Completed" : "Mark as Done"}
+            </button>
+
+            <button
+              className="remove-task"
+              onClick={() => removeTask(task.id)}
+            >
+              Remove
+            </button>
+          </div>
+        ))}
+
+        {tasks.length === 0 && (
+          <p>No tasks yet. Add your first task!</p>
+        )}
+      </div>
+    </div>
+  );
+}
+
+export default Tasks;

@@ -4,17 +4,17 @@ function About() {
     <div className="page-container about-page">
 
       <section className="about-header">
-        <h1>About UniHub</h1>
+        <h1>About UniPlan</h1>
         <p>
           Making university life easier, more organized, and more productive.
         </p>
       </section>
 
       <section className="about-intro">
-        <h2>What is UniHub?</h2>
+        <h2>What is UniPlan?</h2>
 
         <p>
-          UniHub is a student platform designed to help university students
+          UniPlan is a student platform designed to help university students
           organize their academic life in one place. University students
           often have many responsibilities, including courses, class
           schedules, assignments, and deadlines.
@@ -28,7 +28,7 @@ function About() {
         </p>
 
         <p>
-          With UniHub, students can save time, stay organized, and focus
+          With UniPlan, students can save time, stay organized, and focus
           more on achieving their academic goals.
         </p>
       </section>
@@ -54,7 +54,7 @@ function About() {
       </section>
 
       <section className="about-features">
-        <h2>What Can You Do With UniHub?</h2>
+        <h2>What Can You Do With UniPlan?</h2>
 
         <div className="about-features-grid">
 

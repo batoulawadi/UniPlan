@@ -33,7 +33,7 @@ function Contact() {
           <h2>Get in Touch</h2>
 
           <p>
-            If you have any questions, feedback, or suggestions about UniHub,
+            If you have any questions, feedback, or suggestions about UniPlan,
             feel free to contact us using the information below.
           </p>
 
@@ -49,7 +49,7 @@ function Contact() {
 
           <div className="contact-info-card">
             <h3>Our Platform</h3>
-            <p>UniHub - Your Academic Organization Platform</p>
+            <p>UniPlan - Your Academic Organization Platform</p>
           </div>
 
         </section>
