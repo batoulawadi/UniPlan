@@ -1,0 +1,976 @@
+
+/* =====================================
+   UNI HUB - GLOBAL STYLES
+===================================== */
+
+:root {
+  --dark-purple: #241b3a;
+  --purple: #7046b5;
+  --light-purple: #a78bfa;
+  --soft-purple: #eee7fa;
+  --background: #f8f6fc;
+  --white: #ffffff;
+  --text: #302747;
+  --muted: #817991;
+  --border: #e8e0f2;
+  --danger: #d95370;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--background);
+  color: var(--text);
+  min-width: 320px;
+}
+
+#root {
+  width: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+}
+
+/* =====================================
+   NAVBAR
+===================================== */
+
+.navbar {
+  width: 100%;
+  min-height: 80px;
+  background-color: var(--dark-purple);
+  padding: 0 5%;
+
+  display: flex;
+  align-items: center;
+
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
+  box-shadow: 0 4px 15px rgba(36, 27, 58, 0.15);
+}
+
+.navbar .container {
+  width: 100%;
+  max-width: 1400px;
+  min-height: 80px;
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.navbar-brand {
+  color: var(--white);
+  font-size: 28px;
+  font-weight: bold;
+  text-decoration: none;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.navbar .nav-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #e9e1f7;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+
+  padding: 11px 15px;
+  border-radius: 9px;
+
+  transition: all 0.3s ease;
+}
+
+.navbar .nav-link:hover {
+  background-color: var(--purple);
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* =====================================
+   GENERAL PAGE CONTAINER
+===================================== */
+
+.page-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 55px auto;
+  min-height: 65vh;
+}
+
+.page-container h1 {
+  color: var(--dark-purple);
+  font-size: 34px;
+  margin-bottom: 12px;
+}
+
+.page-container > p {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.7;
+  margin-bottom: 35px;
+}
+
+.page-container h2 {
+  color: var(--dark-purple);
+  font-size: 23px;
+  margin: 30px 0 20px;
+}
+
+/* =====================================
+   HOME PAGE
+===================================== */
+
+.home-page {
+  width: 90%;
+  max-width: 1200px;
+  margin: 45px auto;
+
+  /* Different font for Home */
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+}
+
+.welcome-section {
+  background: linear-gradient(
+    135deg,
+    #241b3a,
+    #7046b5,
+    #9874d2
+  );
+
+  color: white;
+  padding: 75px 55px;
+  border-radius: 22px;
+  margin-bottom: 45px;
+
+  box-shadow: 0 12px 30px rgba(112, 70, 181, 0.18);
+}
+
+.welcome-section h1 {
+  font-family: "Trebuchet MS", "Segoe UI", sans-serif;
+  font-size: 43px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  letter-spacing: -1px;
+}
+
+.welcome-section p {
+  font-size: 18px;
+  line-height: 1.8;
+  max-width: 650px;
+  color: #eee7fa;
+}
+
+.quick-access {
+  text-align: center;
+  padding: 30px 10px;
+}
+
+.quick-access h2 {
+  font-size: 30px;
+  color: var(--dark-purple);
+  margin-bottom: 12px;
+}
+
+.quick-access p {
+  color: var(--muted);
+  line-height: 1.7;
+  margin-bottom: 30px;
+}
+
+.home-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.home-btn {
+  display: inline-block;
+  text-decoration: none;
+  background: var(--purple);
+  color: white;
+
+  padding: 14px 25px;
+  border-radius: 10px;
+
+  font-size: 15px;
+  font-weight: bold;
+
+  box-shadow: 0 5px 12px rgba(112, 70, 181, 0.15);
+  transition: all 0.3s ease;
+}
+
+.home-btn:hover {
+  background: var(--dark-purple);
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(36, 27, 58, 0.2);
+}
+
+/* =====================================
+   FORMS
+===================================== */
+
+.course-form,
+.schedule-form,
+.contact-form,
+.task-form {
+  background: var(--white);
+  padding: 30px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+
+  box-shadow: 0 5px 20px rgba(36, 27, 58, 0.05);
+  margin-bottom: 35px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+}
+
+.course-form label,
+.schedule-form label,
+.contact-form label,
+.task-form label {
+  color: var(--dark-purple);
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.course-form input,
+.schedule-form input,
+.schedule-form select,
+.contact-form input,
+.contact-form textarea,
+.task-form input {
+  width: 100%;
+  padding: 13px 15px;
+
+  border: 1px solid var(--border);
+  border-radius: 9px;
+
+  background: #fcfbfe;
+  color: var(--text);
+
+  font-size: 15px;
+  outline: none;
+
+  transition: all 0.3s ease;
+}
+
+.course-form input:focus,
+.schedule-form input:focus,
+.schedule-form select:focus,
+.contact-form input:focus,
+.contact-form textarea:focus,
+.task-form input:focus {
+  border-color: var(--purple);
+  box-shadow: 0 0 0 3px rgba(112, 70, 181, 0.12);
+}
+
+/* =====================================
+   BUTTONS
+===================================== */
+
+button {
+  border: none;
+  cursor: pointer;
+
+  background: var(--purple);
+  color: white;
+
+  padding: 12px 20px;
+  border-radius: 9px;
+
+  font-size: 14px;
+  font-weight: bold;
+
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: var(--dark-purple);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 12px rgba(36, 27, 58, 0.15);
+}
+
+button:active {
+  transform: scale(0.97);
+}
+
+/* =====================================
+   COURSES PAGE
+===================================== */
+
+.courses-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.course-card {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  background: white;
+  padding: 20px 25px;
+
+  border-radius: 14px;
+  border: 1px solid var(--border);
+
+  box-shadow: 0 4px 14px rgba(36, 27, 58, 0.04);
+  transition: all 0.3s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 9px 22px rgba(36, 27, 58, 0.09);
+}
+
+.course-card h3 {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+
+  color: var(--dark-purple);
+  font-size: 17px;
+  overflow-wrap: anywhere;
+}
+
+.course-card button {
+  flex-shrink: 0;
+  width: 105px;
+  background: var(--danger);
+}
+
+.course-card button:hover {
+  background: #b93455;
+}
+
+/* =====================================
+   SCHEDULE PAGE
+===================================== */
+
+.schedule-form {
+  max-width: 650px;
+
+  /* Center the form */
+  margin: 0 auto 40px;
+}
+
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  background: white;
+  border-radius: 14px;
+  overflow: hidden;
+
+  box-shadow: 0 5px 18px rgba(36, 27, 58, 0.05);
+  margin-top: 20px;
+}
+
+.schedule-table th {
+  background: var(--dark-purple);
+  color: white;
+  padding: 17px 15px;
+  text-align: left;
+  font-size: 14px;
+}
+
+.schedule-table td {
+  padding: 16px 15px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  font-size: 14px;
+}
+
+.schedule-table tr:last-child td {
+  border-bottom: none;
+}
+
+.schedule-table tbody tr:hover {
+  background: #f7f3fc;
+}
+
+.schedule-table button {
+  background: var(--danger);
+  padding: 9px 14px;
+}
+
+.schedule-table button:hover {
+  background: #b93455;
+}
+
+/* =====================================
+   TASKS PAGE
+===================================== */
+
+.task-form {
+  max-width: 650px;
+  margin: 0 0 35px;
+}
+
+.tasks-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.task-card {
+  background: white;
+  border: 1px solid var(--border);
+
+  padding: 20px 24px;
+  border-radius: 13px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  box-shadow: 0 4px 14px rgba(36, 27, 58, 0.04);
+  transition: all 0.3s ease;
+}
+
+.task-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(36, 27, 58, 0.08);
+}
+
+.task-card span {
+  flex: 1;
+  color: var(--dark-purple);
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.task-card button {
+  flex-shrink: 0;
+}
+
+.task-card .remove-task {
+  background: var(--danger);
+}
+
+.task-card .remove-task:hover {
+  background: #b93455;
+}
+
+.completed {
+  text-decoration: line-through;
+  color: #9b93a8 !important;
+}
+
+/* =====================================
+   FEATURES PAGE
+===================================== */
+
+.features-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 22px;
+  margin-top: 30px;
+}
+
+.feature-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 28px;
+
+  box-shadow: 0 5px 18px rgba(36, 27, 58, 0.04);
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 24px rgba(112, 70, 181, 0.12);
+  border-color: var(--light-purple);
+}
+
+.feature-card h3 {
+  color: var(--purple);
+  font-size: 19px;
+  margin-bottom: 12px;
+}
+
+.feature-card p {
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+/* =====================================
+   ABOUT PAGE
+===================================== */
+
+.about-card {
+  background: white;
+  padding: 30px;
+  margin-bottom: 22px;
+
+  border-radius: 16px;
+  border: 1px solid var(--border);
+
+  box-shadow: 0 5px 18px rgba(36, 27, 58, 0.04);
+}
+
+.about-card h2 {
+  color: var(--purple);
+  margin-bottom: 15px;
+}
+
+.about-card p {
+  color: var(--muted);
+  line-height: 1.8;
+}
+
+/* =====================================
+   CONTACT PAGE
+===================================== */
+
+.contact-form {
+  max-width: 650px;
+}
+
+.contact-form textarea {
+  min-height: 140px;
+  resize: vertical;
+}
+
+/* =====================================
+   RESPONSIVE - TABLETS
+===================================== */
+
+@media (max-width: 900px) {
+  .navbar .container {
+    width: 100%;
+  }
+
+  .navbar-nav {
+    gap: 5px;
+  }
+
+  .navbar .nav-link {
+    padding: 9px 10px;
+    font-size: 14px;
+  }
+
+  .welcome-section {
+    padding: 55px 35px;
+  }
+
+  .welcome-section h1 {
+    font-size: 35px;
+  }
+}
+
+/* =====================================
+   RESPONSIVE - MOBILE
+===================================== */
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 15px 4%;
+  }
+
+  .navbar .container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .navbar-nav {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .navbar .nav-link {
+    font-size: 13px;
+    padding: 9px 11px;
+  }
+
+  .home-page,
+  .page-container {
+    width: 92%;
+    margin: 30px auto;
+  }
+
+  .welcome-section {
+    padding: 45px 25px;
+    text-align: center;
+  }
+
+  .welcome-section h1 {
+    font-size: 29px;
+  }
+
+  .welcome-section p {
+    font-size: 15px;
+  }
+
+  .quick-access h2 {
+    font-size: 25px;
+  }
+
+  .home-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .home-btn {
+    text-align: center;
+  }
+
+  .features-list {
+    grid-template-columns: 1fr;
+  }
+
+  .course-form,
+  .schedule-form,
+  .contact-form,
+  .task-form {
+    padding: 20px;
+  }
+
+  .schedule-form {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .course-card {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .course-card h3 {
+    font-size: 15px;
+  }
+
+  .course-card button {
+    width: 95px;
+    padding: 10px 8px;
+    font-size: 12px;
+  }
+
+  .task-card {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .schedule-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .page-container h1 {
+    font-size: 28px;
+  }
+}
+
+/* Center Home page paragraph */
+
+.welcome-section p {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+/* =====================================
+   SMALL MOBILE
+===================================== */
+
+@media (max-width: 420px) {
+  .navbar-brand {
+    font-size: 24px;
+  }
+
+  .navbar-nav {
+    gap: 3px;
+  }
+
+  .navbar .nav-link {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .welcome-section h1 {
+    font-size: 25px;
+  }
+
+  .course-card {
+    padding: 13px;
+  }
+
+  .course-card button {
+    width: 85px;
+  }
+
+  .task-card {
+    flex-wrap: wrap;
+  }
+}
+
+
+/* =====================================
+   ABOUT PAGE
+===================================== */
+
+.about-page {
+  max-width: 1150px;
+}
+
+.about-header,
+.contact-header {
+  text-align: center;
+  margin-bottom: 45px;
+}
+
+.about-header h1,
+.contact-header h1 {
+  font-size: 38px;
+  color: var(--dark-purple);
+  margin-bottom: 15px;
+}
+
+.about-header p,
+.contact-header p {
+  color: var(--muted);
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.about-intro {
+  background: white;
+  padding: 35px;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  box-shadow: 0 5px 20px rgba(36, 27, 58, 0.05);
+  margin-bottom: 30px;
+}
+
+.about-intro h2 {
+  color: var(--purple);
+  font-size: 25px;
+  margin-bottom: 20px;
+}
+
+.about-intro p {
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.9;
+  margin-bottom: 15px;
+}
+
+.about-mission {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+  margin-bottom: 45px;
+}
+
+.about-card {
+  background: white;
+  padding: 30px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  box-shadow: 0 5px 18px rgba(36, 27, 58, 0.04);
+  transition: all 0.3s ease;
+}
+
+.about-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(112, 70, 181, 0.12);
+}
+
+.about-card h2 {
+  color: var(--purple);
+  margin-bottom: 15px;
+  font-size: 22px;
+}
+
+.about-card p {
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 15px;
+}
+
+.about-features > h2 {
+  text-align: center;
+  color: var(--dark-purple);
+  font-size: 27px;
+  margin-bottom: 25px;
+}
+
+.about-features-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.about-feature-card {
+  background: white;
+  padding: 25px;
+  border-radius: 15px;
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+}
+
+.about-feature-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--light-purple);
+  box-shadow: 0 8px 20px rgba(112, 70, 181, 0.10);
+}
+
+.about-feature-card h3 {
+  color: var(--purple);
+  margin-bottom: 12px;
+  font-size: 18px;
+}
+
+.about-feature-card p {
+  color: var(--muted);
+  line-height: 1.7;
+  font-size: 15px;
+}
+
+/* =====================================
+   CONTACT PAGE
+===================================== */
+
+.contact-page {
+  max-width: 1150px;
+}
+
+.contact-content {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 35px;
+  align-items: start;
+}
+
+.contact-info,
+.contact-form-section {
+  background: white;
+  padding: 30px;
+  border-radius: 18px;
+  border: 1px solid var(--border);
+  box-shadow: 0 5px 20px rgba(36, 27, 58, 0.05);
+}
+
+.contact-info h2,
+.contact-form-section h2 {
+  color: var(--dark-purple);
+  font-size: 23px;
+  margin-bottom: 18px;
+}
+
+.contact-info > p {
+  color: var(--muted);
+  line-height: 1.8;
+  margin-bottom: 25px;
+  font-size: 15px;
+}
+
+.contact-info-card {
+  background: #f8f5fc;
+  padding: 18px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  border-left: 4px solid var(--purple);
+}
+
+.contact-info-card h3 {
+  color: var(--purple);
+  font-size: 16px;
+  margin-bottom: 8px;
+}
+
+.contact-info-card p {
+  color: var(--text);
+  font-size: 14px;
+  overflow-wrap: anywhere;
+}
+
+.contact-form-section .contact-form {
+  box-shadow: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-form textarea {
+  min-height: 150px;
+  resize: vertical;
+}
+
+.contact-form button {
+  margin-top: 10px;
+  padding: 14px;
+}
+
+/* =====================================
+   ABOUT AND CONTACT - MOBILE
+===================================== */
+
+@media (max-width: 768px) {
+
+  .about-header h1,
+  .contact-header h1 {
+    font-size: 30px;
+  }
+
+  .about-intro {
+    padding: 23px;
+  }
+
+  .about-mission,
+  .about-features-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-content {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-info,
+  .contact-form-section {
+    padding: 22px;
+  }
+}
