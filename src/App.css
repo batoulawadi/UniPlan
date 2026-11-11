@@ -53,14 +53,11 @@ textarea {
   min-height: 80px;
   background-color: var(--dark-purple);
   padding: 0 5%;
-
   display: flex;
   align-items: center;
-
   position: sticky;
   top: 0;
   z-index: 1000;
-
   box-shadow: 0 4px 15px rgba(36, 27, 58, 0.15);
 }
 
@@ -69,7 +66,6 @@ textarea {
   max-width: 1400px;
   min-height: 80px;
   margin: 0 auto;
-
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -99,15 +95,12 @@ textarea {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
   color: #e9e1f7;
   text-decoration: none;
   font-size: 15px;
   font-weight: 500;
-
   padding: 11px 15px;
   border-radius: 9px;
-
   transition: all 0.3s ease;
 }
 
@@ -155,8 +148,6 @@ textarea {
   width: 90%;
   max-width: 1200px;
   margin: 45px auto;
-
-  /* Different font for Home */
   font-family: "Trebuchet MS", "Segoe UI", sans-serif;
 }
 
@@ -167,13 +158,12 @@ textarea {
     #7046b5,
     #9874d2
   );
-
   color: white;
   padding: 75px 55px;
   border-radius: 22px;
   margin-bottom: 45px;
-
   box-shadow: 0 12px 30px rgba(112, 70, 181, 0.18);
+  text-align: center;
 }
 
 .welcome-section h1 {
@@ -189,6 +179,8 @@ textarea {
   line-height: 1.8;
   max-width: 650px;
   color: #eee7fa;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .quick-access {
@@ -221,13 +213,10 @@ textarea {
   text-decoration: none;
   background: var(--purple);
   color: white;
-
   padding: 14px 25px;
   border-radius: 10px;
-
   font-size: 15px;
   font-weight: bold;
-
   box-shadow: 0 5px 12px rgba(112, 70, 181, 0.15);
   transition: all 0.3s ease;
 }
@@ -250,10 +239,8 @@ textarea {
   padding: 30px;
   border-radius: 16px;
   border: 1px solid var(--border);
-
   box-shadow: 0 5px 20px rgba(36, 27, 58, 0.05);
   margin-bottom: 35px;
-
   display: flex;
   flex-direction: column;
   gap: 13px;
@@ -276,16 +263,12 @@ textarea {
 .task-form input {
   width: 100%;
   padding: 13px 15px;
-
   border: 1px solid var(--border);
   border-radius: 9px;
-
   background: #fcfbfe;
   color: var(--text);
-
   font-size: 15px;
   outline: none;
-
   transition: all 0.3s ease;
 }
 
@@ -306,16 +289,12 @@ textarea {
 button {
   border: none;
   cursor: pointer;
-
   background: var(--purple);
   color: white;
-
   padding: 12px 20px;
   border-radius: 9px;
-
   font-size: 14px;
   font-weight: bold;
-
   transition: all 0.3s ease;
 }
 
@@ -333,6 +312,10 @@ button:active {
    COURSES PAGE
 ===================================== */
 
+.course-form {
+  width: 100%;
+}
+
 .courses-list {
   display: flex;
   flex-direction: column;
@@ -341,18 +324,14 @@ button:active {
 
 .course-card {
   width: 100%;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-
   background: white;
   padding: 20px 25px;
-
   border-radius: 14px;
   border: 1px solid var(--border);
-
   box-shadow: 0 4px 14px rgba(36, 27, 58, 0.04);
   transition: all 0.3s ease;
 }
@@ -366,7 +345,6 @@ button:active {
   flex: 1;
   min-width: 0;
   margin: 0;
-
   color: var(--dark-purple);
   font-size: 17px;
   overflow-wrap: anywhere;
@@ -387,20 +365,17 @@ button:active {
 ===================================== */
 
 .schedule-form {
+  width: 100%;
   max-width: 650px;
-
-  /* Center the form */
   margin: 0 auto 40px;
 }
 
 .schedule-table {
   width: 100%;
   border-collapse: collapse;
-
   background: white;
   border-radius: 14px;
   overflow: hidden;
-
   box-shadow: 0 5px 18px rgba(36, 27, 58, 0.05);
   margin-top: 20px;
 }
@@ -442,8 +417,9 @@ button:active {
 ===================================== */
 
 .task-form {
+  width: 100%;
   max-width: 650px;
-  margin: 0 0 35px;
+  margin: 0 auto 35px;
 }
 
 .tasks-list {
@@ -455,15 +431,12 @@ button:active {
 .task-card {
   background: white;
   border: 1px solid var(--border);
-
   padding: 20px 24px;
   border-radius: 13px;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 20px;
-
   box-shadow: 0 4px 14px rgba(36, 27, 58, 0.04);
   transition: all 0.3s ease;
 }
@@ -513,7 +486,6 @@ button:active {
   border: 1px solid var(--border);
   border-radius: 16px;
   padding: 28px;
-
   box-shadow: 0 5px 18px rgba(36, 27, 58, 0.04);
   transition: all 0.3s ease;
 }
@@ -534,219 +506,6 @@ button:active {
   color: var(--muted);
   line-height: 1.7;
 }
-
-/* =====================================
-   ABOUT PAGE
-===================================== */
-
-.about-card {
-  background: white;
-  padding: 30px;
-  margin-bottom: 22px;
-
-  border-radius: 16px;
-  border: 1px solid var(--border);
-
-  box-shadow: 0 5px 18px rgba(36, 27, 58, 0.04);
-}
-
-.about-card h2 {
-  color: var(--purple);
-  margin-bottom: 15px;
-}
-
-.about-card p {
-  color: var(--muted);
-  line-height: 1.8;
-}
-
-/* =====================================
-   CONTACT PAGE
-===================================== */
-
-.contact-form {
-  max-width: 650px;
-}
-
-.contact-form textarea {
-  min-height: 140px;
-  resize: vertical;
-}
-
-/* =====================================
-   RESPONSIVE - TABLETS
-===================================== */
-
-@media (max-width: 900px) {
-  .navbar .container {
-    width: 100%;
-  }
-
-  .navbar-nav {
-    gap: 5px;
-  }
-
-  .navbar .nav-link {
-    padding: 9px 10px;
-    font-size: 14px;
-  }
-
-  .welcome-section {
-    padding: 55px 35px;
-  }
-
-  .welcome-section h1 {
-    font-size: 35px;
-  }
-}
-
-/* =====================================
-   RESPONSIVE - MOBILE
-===================================== */
-
-@media (max-width: 768px) {
-  .navbar {
-    padding: 15px 4%;
-  }
-
-  .navbar .container {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .navbar-nav {
-    width: 100%;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 5px;
-  }
-
-  .navbar .nav-link {
-    font-size: 13px;
-    padding: 9px 11px;
-  }
-
-  .home-page,
-  .page-container {
-    width: 92%;
-    margin: 30px auto;
-  }
-
-  .welcome-section {
-    padding: 45px 25px;
-    text-align: center;
-  }
-
-  .welcome-section h1 {
-    font-size: 29px;
-  }
-
-  .welcome-section p {
-    font-size: 15px;
-  }
-
-  .quick-access h2 {
-    font-size: 25px;
-  }
-
-  .home-buttons {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .home-btn {
-    text-align: center;
-  }
-
-  .features-list {
-    grid-template-columns: 1fr;
-  }
-
-  .course-form,
-  .schedule-form,
-  .contact-form,
-  .task-form {
-    padding: 20px;
-  }
-
-  .schedule-form {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  .course-card {
-    padding: 16px;
-    gap: 12px;
-  }
-
-  .course-card h3 {
-    font-size: 15px;
-  }
-
-  .course-card button {
-    width: 95px;
-    padding: 10px 8px;
-    font-size: 12px;
-  }
-
-  .task-card {
-    padding: 16px;
-    gap: 12px;
-  }
-
-  .schedule-table {
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
-  }
-
-  .page-container h1 {
-    font-size: 28px;
-  }
-}
-
-/* Center Home page paragraph */
-
-.welcome-section p {
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-}
-/* =====================================
-   SMALL MOBILE
-===================================== */
-
-@media (max-width: 420px) {
-  .navbar-brand {
-    font-size: 24px;
-  }
-
-  .navbar-nav {
-    gap: 3px;
-  }
-
-  .navbar .nav-link {
-    font-size: 12px;
-    padding: 8px;
-  }
-
-  .welcome-section h1 {
-    font-size: 25px;
-  }
-
-  .course-card {
-    padding: 13px;
-  }
-
-  .course-card button {
-    width: 85px;
-  }
-
-  .task-card {
-    flex-wrap: wrap;
-  }
-}
-
 
 /* =====================================
    ABOUT PAGE
@@ -812,6 +571,7 @@ button:active {
   border: 1px solid var(--border);
   box-shadow: 0 5px 18px rgba(36, 27, 58, 0.04);
   transition: all 0.3s ease;
+  margin-bottom: 22px;
 }
 
 .about-card:hover {
@@ -946,10 +706,136 @@ button:active {
 }
 
 /* =====================================
-   ABOUT AND CONTACT - MOBILE
+   RESPONSIVE - TABLETS
+===================================== */
+
+@media (max-width: 900px) {
+  .navbar .container {
+    width: 100%;
+  }
+
+  .navbar-nav {
+    gap: 5px;
+  }
+
+  .navbar .nav-link {
+    padding: 9px 10px;
+    font-size: 14px;
+  }
+
+  .welcome-section {
+    padding: 55px 35px;
+  }
+
+  .welcome-section h1 {
+    font-size: 35px;
+  }
+}
+
+/* =====================================
+   RESPONSIVE - MOBILE
 ===================================== */
 
 @media (max-width: 768px) {
+  .navbar {
+    padding: 15px 4%;
+  }
+
+  .navbar .container {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .navbar-nav {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  .navbar .nav-link {
+    font-size: 13px;
+    padding: 9px 11px;
+  }
+
+  .home-page,
+  .page-container {
+    width: 92%;
+    margin: 30px auto;
+  }
+
+  .welcome-section {
+    padding: 45px 25px;
+    text-align: center;
+  }
+
+  .welcome-section h1 {
+    font-size: 29px;
+  }
+
+  .welcome-section p {
+    font-size: 15px;
+  }
+
+  .quick-access h2 {
+    font-size: 25px;
+  }
+
+  .home-buttons {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .home-btn {
+    text-align: center;
+  }
+
+  .features-list {
+    grid-template-columns: 1fr;
+  }
+
+  .course-form,
+  .schedule-form,
+  .contact-form,
+  .task-form {
+    width: 100%;
+  }
+
+  .schedule-form,
+  .task-form {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .course-card {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .course-card h3 {
+    font-size: 15px;
+  }
+
+  .course-card button {
+    width: 95px;
+    padding: 10px 8px;
+    font-size: 12px;
+  }
+
+  .task-card {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .schedule-table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+
+  .page-container h1 {
+    font-size: 28px;
+  }
 
   .about-header h1,
   .contact-header h1 {
@@ -972,5 +858,40 @@ button:active {
   .contact-info,
   .contact-form-section {
     padding: 22px;
+  }
+}
+
+/* =====================================
+   SMALL MOBILE
+===================================== */
+
+@media (max-width: 420px) {
+  .navbar-brand {
+    font-size: 24px;
+  }
+
+  .navbar-nav {
+    gap: 3px;
+  }
+
+  .navbar .nav-link {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .welcome-section h1 {
+    font-size: 25px;
+  }
+
+  .course-card {
+    padding: 13px;
+  }
+
+  .course-card button {
+    width: 85px;
+  }
+
+  .task-card {
+    flex-wrap: wrap;
   }
 }
