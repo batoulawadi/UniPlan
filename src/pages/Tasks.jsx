@@ -1,14 +1,24 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function Tasks() {
-  const [tasks, setTasks] = useState([
-    { id: 1, title: "Web Project", done: false },
-    { id: 2, title: "Computer Architecture Midterm", done: false },
-    { id: 3, title: "Mobile Project", done: false }
-  ]);
+  const [tasks, setTasks] = useState(() => {
+    const savedTasks = localStorage.getItem("uniplanTasks");
+
+    return savedTasks
+      ? JSON.parse(savedTasks)
+      : [
+          { id: 1, title: "Web Project", done: false },
+          { id: 2, title: "Computer Architecture Midterm", done: false },
+          { id: 3, title: "Mobile Project", done: false }
+        ];
+  });
 
   const [newTask, setNewTask] = useState("");
+
+  useEffect(() => {
+    localStorage.setItem("uniplanTasks", JSON.stringify(tasks));
+  }, [tasks]);
 
   function addTask(e) {
     e.preventDefault();
@@ -20,7 +30,7 @@ function Tasks() {
 
     const task = {
       id: Date.now(),
-      title: newTask,
+      title: newTask.trim(),
       done: false
     };
 
@@ -30,7 +40,7 @@ function Tasks() {
 
   function completeTask(id) {
     setTasks(
-      tasks.map((task) =>
+      tasks.map(task =>
         task.id === id
           ? { ...task, done: !task.done }
           : task
@@ -39,12 +49,11 @@ function Tasks() {
   }
 
   function removeTask(id) {
-    setTasks(tasks.filter((task) => task.id !== id));
+    setTasks(tasks.filter(task => task.id !== id));
   }
 
   return (
     <div className="page-container">
-
       <h1>My Tasks</h1>
       <p>Keep track of your assignments and academic tasks.</p>
 
@@ -66,10 +75,8 @@ function Tasks() {
       <h2>My Task List</h2>
 
       <div className="tasks-list">
-
-        {tasks.map((task) => (
+        {tasks.map(task => (
           <div className="task-card" key={task.id}>
-
             <span className={task.done ? "completed" : ""}>
               {task.title}
             </span>
@@ -84,16 +91,13 @@ function Tasks() {
             >
               Remove
             </button>
-
           </div>
         ))}
 
         {tasks.length === 0 && (
           <p>No tasks yet. Add your first task!</p>
         )}
-
       </div>
-
     </div>
   );
 }

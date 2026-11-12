@@ -1,32 +1,40 @@
-
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function Courses() {
-  const [courses, setCourses] = useState([
-    { id: 1, name: "Advanced Web Programming", code: "CSCI426" },
-    { id: 2, name: "Mobile Applications", code: "CSCI490" },
-    { id: 3, name: "Database", code: "CSCI320" }
-  ]);
+  const [courses, setCourses] = useState(() => {
+    const savedCourses = localStorage.getItem("uniplanCourses");
+
+    return savedCourses
+      ? JSON.parse(savedCourses)
+      : [
+          { id: 1, name: "Advanced Web Programming", code: "CSCI426" },
+          { id: 2, name: "Mobile Applications", code: "CSCI490" },
+          { id: 3, name: "Database", code: "CSCI320" }
+        ];
+  });
 
   const [name, setName] = useState("");
   const [code, setCode] = useState("");
 
+  useEffect(() => {
+    localStorage.setItem("uniplanCourses", JSON.stringify(courses));
+  }, [courses]);
+
   function addCourse(e) {
     e.preventDefault();
 
-    if (name === "" || code === "") {
+    if (name.trim() === "" || code.trim() === "") {
       alert("Please fill in all fields");
       return;
     }
 
     const newCourse = {
       id: Date.now(),
-      name: name,
-      code: code
+      name: name.trim(),
+      code: code.trim()
     };
 
     setCourses([...courses, newCourse]);
-
     setName("");
     setCode("");
   }
@@ -56,10 +64,10 @@ function Courses() {
         />
 
         <button type="submit">Add Course</button>
-      </form>   
+      </form>
 
       <div className="courses-list">
-        {courses.map((course) => (
+        {courses.map(course => (
           <div className="course-card" key={course.id}>
             <h3>{course.name}</h3>
             <p>{course.code}</p>
