@@ -44,7 +44,7 @@ function Contact() {
 
           <div className="contact-info-card">
             <h3>Phone Number</h3>
-            <p>0096170783127</p>
+            <p>00961</p>
           </div>
 
           <div className="contact-info-card">
